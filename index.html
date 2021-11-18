@@ -5,11 +5,50 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>TeamOppgave4</title>
 </head>
 
 <body>
-
+  <div id="app">u</div>
 </body>
+<script src="pokemon.js"></script>
+<script>
+  textBoxContent = "";
+
+  var playerChoiceDivContent = "";
+  var aiChoiceDivContent = "";
+
+  updateView();
+
+  function updateView() {
+    let html = `
+			<table>
+				<tr>
+					<th>Choose your Pökémon</th
+				</tr>
+				<tr>
+					<td onclick="playerChoice(0)">Vulpix (Fire)</th>
+				</tr>
+				<tr>
+					<td onclick="playerChoice(1)">Glaceon (Ice)</th>
+				</tr>
+				<tr>
+					<td onclick="playerChoice(2)">Geodude (Rock)</th>
+				</tr>
+				<tr>
+					<td onclick="playerChoice(3)">Cubone (Ground)</th>
+				</tr>
+				<tr>
+					<td onclick="playerChoice(4)">Turtwig (Grass)</th>
+				</tr>
+			</table>
+			<div>${textBoxContent}</div>
+			<div>${playerChoiceDivContent}</div>
+			<div>${aiChoiceDivContent}</div>
+		`;
+
+    document.getElementById("app").innerHTML = html;
+  }
+</script>
 
 </html>
