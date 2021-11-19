@@ -6,14 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TeamOppgave4</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div id="app">u</div>
+  <div id="app"></div>
 </body>
 <script src="pokemon.js"></script>
 <script>
-  textBoxContent = "";
+  var textBoxContent = "";
 
   var playerChoiceDivContent = "";
   var aiChoiceDivContent = "";
@@ -43,8 +44,9 @@
 				</tr>
 			</table>
 			<div>${textBoxContent}</div>
-			<div>${playerChoiceDivContent}</div>
-			<div>${aiChoiceDivContent}</div>
+			<div class="playerPokemon">${playerChoiceDivContent}</div>
+			<div class="aiPokemon">${aiChoiceDivContent}</div>
+			<div class="gameFrame"></div>
 		`;
 
     document.getElementById("app").innerHTML = html;
