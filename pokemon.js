@@ -29,7 +29,7 @@ function playerChoice(choice) {
 		playerChoiceIndex = choice;
 		console.log("playerChoiceIndex:", playerChoiceIndex);
 		aiChoice();
-
+		// TODO: Chain function calls below instead of having them run asyncronously
 		setTimeout( showPlayerChoice, 0);
 		setTimeout(textBox, 0, `You chose ${pokeNames[playerChoiceIndex]}!`, 3000)
 
