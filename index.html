@@ -17,36 +17,22 @@
   var textBoxContent = "";
 
   var playerChoiceDivContent = "";
-  var aiChoiceDivContent = "";
+	var playerChoiceAnimClass = "";
+	var aiChoiceDivContent = "";
+	var aiChoiceAnimClass = "";
 
   updateView();
+	showChoices();
 
-  function updateView() {
+  function updateView(anim) {
     let html = `
-			<table>
-				<tr>
-					<th>Choose your Pökémon</th
-				</tr>
-				<tr>
-					<td onclick="playerChoice(0)">Vulpix (Fire)</th>
-				</tr>
-				<tr>
-					<td onclick="playerChoice(1)">Glaceon (Ice)</th>
-				</tr>
-				<tr>
-					<td onclick="playerChoice(2)">Geodude (Rock)</th>
-				</tr>
-				<tr>
-					<td onclick="playerChoice(3)">Cubone (Ground)</th>
-				</tr>
-				<tr>
-					<td onclick="playerChoice(4)">Turtwig (Grass)</th>
-				</tr>
-			</table>
 			<div>${textBoxContent}</div>
-			<div class="playerPokemon">${playerChoiceDivContent}</div>
-			<div class="aiPokemon">${aiChoiceDivContent}</div>
+			<div class="playerPokemon ${(anim == 0) ? playerChoiceAnimClass : ""}">${playerChoiceDivContent}</div>
+			<div class="aiPokemon ${(anim == 1) ? aiChoiceAnimClass : ""}"">${aiChoiceDivContent}</div>
 			<div class="gameFrame"></div>
+			<div class="gameFrameBG"></div>
+			<div style="position:fixed; top:0%; left: 0%; width: calc(22% + 5px); height: 100%; z-index:75; background-color: white;"></div>
+			<div style="position:fixed; top:0%; right: 0%; width: calc(26% - 5px); height: 100%; z-index:75; background-color: white;"></div>
 		`;
 
     document.getElementById("app").innerHTML = html;

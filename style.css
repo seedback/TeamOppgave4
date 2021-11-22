@@ -1,6 +1,9 @@
-div {
+body {
 	font-family: 'Courier New', Courier, monospace;
 	font-size: large;
+	font-size: xx-large;
+	font-weight: bold;
+	color:rgb(60, 60, 60);
 }
 
 .textBoxDiv {
@@ -10,11 +13,8 @@ div {
     border: 2px solid rgb(60, 60, 60);
     width: calc(52% - 6px);
     height: 27%;
-    font-size: xx-large;
-		font-weight: bold;
-		color:rgb(60, 60, 60);
 		background-color: white;
-		z-index: 5;
+		z-index: 110;
 }
 .hidden {
     display: hidden;
@@ -51,5 +51,121 @@ div {
     border: 5px double rgb(60, 60, 60)	;
     width: 52%;
     height: 80%;
-		background-image: linear-gradient(rgb(64, 180, 200),rgb(197, 233, 253), rgb(92, 175, 86), rgb(148, 248, 128), rgb(106, 189, 100),rgb(106, 189, 100));
+		z-index: 100;
+}
+.gameFrameBG{
+	position: fixed;
+	top: calc(10% + 5px);
+  left: calc(22% + 5px);
+	background-image: linear-gradient(rgb(64, 180, 200),rgb(197, 233, 253), rgb(92, 175, 86), rgb(148, 248, 128), rgb(106, 189, 100),rgb(106, 189, 100));
+	width: 52%;
+  height: 80%;
+	z-index: 0;
+}
+
+.pokemonSelect{
+	height: calc((100% - 3ex)/2);
+	display: grid;
+  grid: 1fr 1fr/1fr 1fr 1fr;
+
+}
+.pokemonSelectTitle{
+	height: 3ex;
+	text-align: center;
+  background-color: red;
+}
+.pokemonSelectTile{
+	height: 100%;
+}
+
+.pokemonImg{
+	height: 10vmin;
+	width: 10vmin;
+	padding: 0px;
+	margin: 0px;
+}
+
+.playPlayerEnter{
+	animation-name: playerEnter;
+	animation-duration: 2s;
+}
+@keyframes playerEnter{
+	0%{
+		position: fixed;
+		top: 35%;
+		left: 0%;
+		z-index: 20;
+	}
+	100%{
+		position: fixed;
+		top: 35%;
+		left: 28%;
+		z-index: 20;
+	}
+}
+
+.playAiEnter{
+	animation-name: aiEnter;
+	animation-duration: 2s;
+}
+@keyframes aiEnter{
+	0%{
+		position: fixed;
+    top: 23%;
+    right: 0%;
+		z-index: 10;
+	}
+	100%{
+		position: fixed;
+    top: 23%;
+    right: 28%;
+		z-index: 10;
+	}
+}
+
+.playPlayerAttack{
+	animation-name: playerAttack;
+	animation-duration: 1s;
+}
+@keyframes playerAttack{
+	0%{}
+	25%{}
+	30%{}
+	100%{}
+}
+
+.playaiAttack{
+	animation-name: aiAttack;
+	animation-duration: 1s;
+}
+@keyframes aiAttack{
+	0%{}
+	25%{}
+	30%{}
+	100%{}
+}
+
+.playPlayerFaint{
+	animation-name: playerFaint;
+	animation-duration: 1s;
+}
+@keyframes playerFaint{
+	0%{/*on*/}
+	9%{/*on*/}
+	10%{/*off*/}
+	19%{/*off*/}
+	20%{/*on*/}
+	29%{/*on*/}
+	30%{/*off*/}
+	39%{/*off*/}
+	40%{/*on*/}
+	49%{/*on*/}
+	50%{/*off*/}
+	59%{/*off*/}
+	60%{/*on*/}
+	69%{/*on*/}
+	70%{/*off*/}
+	79%{/*off*/}
+	80%{/*on*/}
+	100%{/*off*/}
 }
