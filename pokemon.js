@@ -39,10 +39,9 @@ function playerChoice(choice) {
 		setTimeout(textBox, 5000, `Your opponent chose ${pokeNames[aiChoiceIndex]}!`, 2900)
 		setTimeout(showAiChoice, 8000);
 		
-		setTimeout( findWinner, 10000);
+		setTimeout(findWinner, 10000);
 		
-		setTimeout(function(){canPlayerChoose = true; showChoices();}, 14000)
-
+		setTimeout(function(){canPlayerChoose = true; showChoices();}, 15000)
 	}
 }
 
@@ -55,13 +54,51 @@ function aiChoice() {
 
 function findWinner() {
   if (pokeBeat[playerChoiceIndex][0] == aiChoiceIndex || pokeBeat[playerChoiceIndex][1] == aiChoiceIndex) {
-    textBox(`${pokeNames[aiChoiceIndex]} faints.`, 3000);
+
+    textBox(`${pokeNames[aiChoiceIndex]} faints.`, 2900);
+		playerChoiceAnimClass = "playPlayerAttack";
+		aiChoiceAnimClass = "playAiFaint";
+		
+		setTimeout(function(){
+			updateView(2);
+			setTimeout(function(){
+				playerChoiceAnimClass = "";
+				aiChoiceAnimClass = "fainted";
+				totalPlayerWins++;
+				updateView(2);
+			},1100);
+		}, 3000);
   } else if (pokeBeat[aiChoiceIndex][0] == playerChoiceIndex || pokeBeat[aiChoiceIndex][1] == playerChoiceIndex) {
-		textBox(`${pokeNames[playerChoiceIndex]} faints.`, 3000);
-  } else {
-    textBox(`Both pokemon faint.`, 3000)
+
+		textBox(`${pokeNames[playerChoiceIndex]} faints.`, 2900);
+		playerChoiceAnimClass = "playPlayerFaint";
+		aiChoiceAnimClass = "playAiAttack";	
+
+		setTimeout(function(){
+			updateView(2);
+			setTimeout(function(){
+				playerChoiceAnimClass = "fainted";
+				aiChoiceAnimClass = "";
+				totalaiWins++;
+				updateView(2);
+			},1100);
+		}, 3000);
+  } else { 
+
+    textBox(`Both pokemon faint.`, 2900);
+		playerChoiceAnimClass = "playPlayerFaint";
+		aiChoiceAnimClass = "playAiFaint"; 
+
+		setTimeout(function(){
+			updateView(2);
+			setTimeout(function(){
+				playerChoiceAnimClass = "fainted";
+				aiChoiceAnimClass = "fainted";
+				totalTies++;
+				updateView(2);
+			},1100);
+		}, 3000);
   }
-  pokeBeat[playerChoiceIndex]
 }
 
 function showPlayerChoice() {
@@ -110,23 +147,29 @@ function showChoices() {
 						<div class="pokemonSelect">
 							<div class="pokemonSelectTile" onclick="playerChoice(0)">
 								<img class="pokemonImg" src="img/vulpix.png"/>
+								Vulpix
 							</div>
 							<div class="pokemonSelectTile" onclick="playerChoice(1)">
 								<img class="pokemonImg" src="img/glaceon.png"/>
+								Glaceon
 							</div>
 							<div class="pokemonSelectTile" onclick="playerChoice(2)">		
 								<img class="pokemonImg" src="img/geodude.png"/>
+								Geodude
 							</div>
 							<div class="pokemonSelectTile" onclick="playerChoice(3)">
 								<img class="pokemonImg" src="img/cubone.png"/>
+								Cubone
 							</div>
 							<div class="pokemonSelectTile" onclick="playerChoice(4)">
 								<img class="pokemonImg" src="img/turtwig.png"/>
+								Turtwig
 							</div>
 							<div class="pokemonSelectTile" style="background: grey;">
 								<img class="pokemonImg" src="img/missingno.png"/>
+								Missingno
 							</div>
 						</div>
 					</div>`;
-	updateView();
+	updateView(2);
 }

@@ -20,15 +20,19 @@
 	var playerChoiceAnimClass = "";
 	var aiChoiceDivContent = "";
 	var aiChoiceAnimClass = "";
+	var totalaiWins = 0
+	var totalPlayerWins = 0
+	var totalTies = 0
 
   updateView();
 	showChoices();
 
   function updateView(anim) {
     let html = `
+			<div class="scoreDiv">Player wins: ${totalPlayerWins}  Ties: ${totalTies}  AI Wins: ${totalaiWins}</div>
 			<div>${textBoxContent}</div>
-			<div class="playerPokemon ${(anim == 0) ? playerChoiceAnimClass : ""}">${playerChoiceDivContent}</div>
-			<div class="aiPokemon ${(anim == 1) ? aiChoiceAnimClass : ""}"">${aiChoiceDivContent}</div>
+			<div class="playerPokemon ${(anim == 0 || anim == 2) ? playerChoiceAnimClass : ""}">${playerChoiceDivContent}</div>
+			<div class="aiPokemon ${(anim == 1 || anim == 2) ? aiChoiceAnimClass : ""}">${aiChoiceDivContent}</div>
 			<div class="gameFrame"></div>
 			<div class="gameFrameBG"></div>
 			<div style="position:fixed; top:0%; left: 0%; width: calc(22% + 5px); height: 100%; z-index:75; background-color: white;"></div>
