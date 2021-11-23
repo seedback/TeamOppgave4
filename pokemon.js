@@ -166,7 +166,7 @@ function showChoices() {
 								Turtwig
 							</div>
 							<div class="pokemonSelectTile" style="background: grey;">
-								<img class="pokemonImg" src="img/missingno.png"/>
+								<img class="pokemonImg" src="img/missing_no.png"/>
 								Missingno
 							</div>
 						</div>
